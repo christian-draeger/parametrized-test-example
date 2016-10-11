@@ -4,72 +4,28 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>Selenium-School</groupId>
-    <artifactId>Selenium-School</artifactId>
+    <groupId>Parametrized-Test-Example</groupId>
+    <artifactId>Parametrized-Test-Example</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <junit.gen5.version>5.0.0-SNAPSHOT</junit.gen5.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.10</version>
         </dependency>
-
         <!-- needed for paralles runner -->
         <dependency>
             <groupId>com.googlecode.junit-toolbox</groupId>
             <artifactId>junit-toolbox</artifactId>
             <version>2.2</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.9.10</version>
-        </dependency>
-
-        <!-- all the stuff for JUnit5 (lambda) -->
-
-        <!--<dependency>-->
-            <!--<groupId>org.junit</groupId>-->
-            <!--<artifactId>junit5-api</artifactId>-->
-            <!--<version>${junit.gen5.version}</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.junit</groupId>-->
-            <!--<artifactId>junit4-runner</artifactId>-->
-            <!--<version>${junit.gen5.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.junit</groupId>-->
-            <!--<artifactId>junit5-engine</artifactId>-->
-            <!--<version>${junit.gen5.version}</version>-->
-            <!--<scope>test</scope>-->
-        <!--</dependency>-->
-
-        <dependency>
-            <groupId>Selenium-School</groupId>
-            <artifactId>Selenium-School</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
-
-    <!--<reporting>-->
-        <!--<plugins>-->
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-surefire-report-plugin</artifactId>-->
-            <!--</plugin>-->
-        <!--</plugins>-->
-    <!--</reporting>-->
-
     <build>
         <plugins>
             <plugin>
@@ -89,38 +45,12 @@
                 <executions>
                     <execution>
                         <goals>
-                            <goal>integration-test</goal>
                             <goal>verify</goal>
+                            <goal>integration-test</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
-
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-surefire-plugin</artifactId>-->
-                <!--<version>2.19.1</version>-->
-                <!--<dependencies>-->
-                    <!--<dependency>-->
-                        <!--<groupId>org.junit</groupId>-->
-                        <!--<artifactId>surefire-junit5</artifactId>-->
-                        <!--<version>${junit.gen5.version}</version>-->
-                    <!--</dependency>-->
-                <!--</dependencies>-->
-            <!--</plugin>-->
-
         </plugins>
     </build>
-
-    <!--<repositories>-->
-        <!--<repository>-->
-            <!--<id>sonatype-snapshot</id>-->
-            <!--<snapshots>-->
-                <!--<enabled>true</enabled>-->
-            <!--</snapshots>-->
-            <!--<name>Central Snapshot Repository</name>-->
-            <!--<url>https://oss.sonatype.org/content/repositories/snapshots/</url>-->
-        <!--</repository>-->
-    <!--</repositories>-->
-
 </project>

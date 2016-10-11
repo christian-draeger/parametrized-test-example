@@ -10,7 +10,7 @@ import com.googlecode.junittoolbox.ParallelRunner;
  * Created by christian.draeger on 30.06.16.
  */
 @RunWith(ParallelRunner.class) // <----- parallel runner
-public class TheoriesParallel {
+public class TheoriesParallelIT {
 
     @DataPoint public static Object[] TEST1 = { "idealo.de", 111, true};
     @DataPoint public static Object[] TEST2 = { "idealo.in", 222, false};
@@ -18,7 +18,8 @@ public class TheoriesParallel {
 
     @Theory
     public void test(Object[] testData) throws InterruptedException {
-        System.out.println("someString= " + testData[0] + " | someNumber= " + testData[1] + " | someBoolean= " + testData[2]);
+        System.out.println("\ni'm a parametrized jUnit test (with theories) that runs in parallel\nmy parameters now have the value:\n\t"
+                + testData[0] + "\n\t" + testData[1] + "\n\t" + testData[2]);
 
         // simulate some time a test could need to demonstrate advantage of parallelization
         Thread.sleep(5000);

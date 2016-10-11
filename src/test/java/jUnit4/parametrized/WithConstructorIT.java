@@ -11,7 +11,7 @@ import org.junit.runners.Parameterized;
  * Created by christian.draeger on 30.06.16.
  */
 @RunWith(Parameterized.class)
-public class ParametrizedWithConstructor {
+public class WithConstructorIT {
 
     @Parameterized.Parameters
     public static Collection<Object[]> blabla() {
@@ -23,7 +23,7 @@ public class ParametrizedWithConstructor {
     private int someNumber;
     private boolean someBoolean;
 
-    public ParametrizedWithConstructor(String testString, int testNumber, boolean testBoolean) {
+    public WithConstructorIT(String testString, int testNumber, boolean testBoolean) {
         someString = testString;
         someNumber = testNumber;
         someBoolean = testBoolean;
@@ -31,12 +31,10 @@ public class ParametrizedWithConstructor {
 
     @Test
     public void test() throws InterruptedException {
-        System.out.println("someString= " + someString + " | someNumber= " + someNumber + " | someBoolean= " + someBoolean);
+        System.out.println("\ni'm a parametrized jUnit test (using constructor),\nmy parameters now have the value:\n\t"
+                + someString + "\n\t" + someNumber + "\n\t" + someBoolean);
 
         // simulate some time a test could need
         Thread.sleep(5000);
     }
-
-
-
 }

@@ -1,7 +1,5 @@
 package jUnit4.theories;
 
-import static org.junit.Assert.assertTrue;
-
 import org.junit.experimental.theories.DataPoint;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
@@ -11,7 +9,7 @@ import org.junit.runner.RunWith;
  * Created by christian.draeger on 30.06.16.
  */
 @RunWith(Theories.class)
-public class TheoriesTest {
+public class TheoriesIT {
 
     @DataPoint public static Object[] TEST1 = { "idealo.de", 111, true};
     @DataPoint public static Object[] TEST2 = { "idealo.in", 222, false};
@@ -19,10 +17,9 @@ public class TheoriesTest {
 
     @Theory
     public void test(Object[] testData) throws InterruptedException {
-        //assumeTrue(false);
+        System.out.println("\ni'm a parametrized jUnit test (with theories),\nmy parameters now have the value:\n\t"
+                + testData[0] + "\n\t" + testData[1] + "\n\t" + testData[2]);
 
-        System.out.println("someString= " + testData[0] + " | someNumber= " + testData[1] + " | someBoolean= " + testData[2]);
-        assertTrue(false);
         // simulate some time a test could need to demonstrate advantage of parallelization
         Thread.sleep(5000);
     }

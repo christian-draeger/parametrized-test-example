@@ -1,7 +1,5 @@
 package jUnit4.parametrized;
 
-import static org.junit.Assume.assumeTrue;
-
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -13,7 +11,7 @@ import org.junit.runners.Parameterized;
  * Created by christian.draeger on 30.06.16.
  */
 @RunWith(Parameterized.class)
-public class ParametrizedWithFieldInjection {
+public class WithFieldInjectionIT {
 
     @Parameterized.Parameters (name = "test number {index}: someString= {0} | someNumber= {1} | someBoolean= {2}") // <--- naming tests for better identification
     public static Collection<Object[]> data() {
@@ -35,22 +33,11 @@ public class ParametrizedWithFieldInjection {
 
     @Test
     public void test() throws InterruptedException {
-        assumeTrue(false);
-        System.out.println("someString= " + someString + " | someNumber= " + someNumber + " | someBoolean= " + someBoolean);
+        System.out.println("\ni'm a parametrized jUnit test (using field injection),\nmy parameters now have the value:\n\t"
+                + someString + "\n\t" + someNumber + "\n\t" + someBoolean);
 
 
         // simulate some time a test could need
         Thread.sleep(5000);
     }
-
-    @Test
-    public void test2() throws InterruptedException {
-        assumeTrue(false);
-        System.out.println("someString= " + someString + " | someNumber= " + someNumber + " | someBoolean= " + someBoolean);
-
-
-        Thread.sleep(5000);
-    }
-
-
 }

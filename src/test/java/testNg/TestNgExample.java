@@ -6,9 +6,9 @@ import org.testng.annotations.Test;
 /**
  * Created by christian.draeger on 30.06.16.
  */
-public class ParametriezedTestWithTestNg {
+public class TestNgExample {
 
-    @DataProvider(name="firstTestDataSet")
+    @DataProvider(name="firstTestDataSet", parallel = true) // default is parallel false (see testng.xml to set number of threads)
     public Object[][] testData1(){
         return new Object[][]{
                 {"first String", 111, true},
@@ -29,7 +29,8 @@ public class ParametriezedTestWithTestNg {
 
     @Test(dataProvider = "firstTestDataSet")
     public void test1(String someString, int someNumber, boolean someBoolean) throws InterruptedException {
-        System.out.println("someString= " + someString + " | someNumber= " + someNumber + " | someBoolean= " + someBoolean);
+        System.out.println("\ni'm a parametrized testNg test that runs in parallel and i'm using data from\"firstTestDataSet\"\nmy parameters now have the value:\n\t"
+                + someString + "\n\t" + someNumber + "\n\t" + someBoolean);
 
         // simulate some time a test could need
         Thread.sleep(5000);
@@ -39,7 +40,8 @@ public class ParametriezedTestWithTestNg {
     // not possible with junit
     @Test(dataProvider = "secondTestDataSet")
     public void test2(int someNumber, boolean someBoolean, String someString, String someExtraString) throws InterruptedException {
-        System.out.println("someString= " + someString + " | someExtraString= " + someExtraString + " | someNumber= " + someNumber + " | someBoolean= " + someBoolean);
+        System.out.println("\ni'm a parametrized testNg test, but using data from\"secondTestDataSet\"\nmy parameters now have the value:\n\t"
+                            + someString + "\n\t" + someExtraString + "\n\t" + someNumber + "\n\t" + someBoolean);
 
         // simulate some time a test could need
         Thread.sleep(5000);
@@ -49,7 +51,7 @@ public class ParametriezedTestWithTestNg {
     // not possible with junit
     @Test
     public void test3(){
-        System.out.println("\n i'm a non parametrized test in the same class !");
+        System.out.println("\n i'm a non parametrized testNg test in the same class !");
     }
 
 }

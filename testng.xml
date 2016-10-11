@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite1" data-provider-thread-count="4">
+
+    <test name="exampletest1">
+        <classes>
+            <class name="testNg.TestNgExample" />
+        </classes>
+    </test>
+
+    <test name="JUnitTests" junit="true">
+        <classes>
+            <class name="jUnit4.parametrized.WithConstructorIT" />
+            <class name="jUnit4.parametrized.WithFieldInjectionIT" />
+            <class name="jUnit4.theories.TheoriesIT" />
+            <class name="jUnit4.theories.TheoriesParallelIT" />
+        </classes>
+    </test>
+
+</suite>
